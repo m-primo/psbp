@@ -1,10 +1,1 @@
 new Site("Blogger", "https://blogger.com", "b.png");
-new Site("Gold Price", "https://goldprice.org", "goldp.png");
-new Site("Oil Price", "https://oilprice.com", "oilp.png");
-new Site("CNBC AR", "https://www.cnbcarabia.com", "cnbcar.png");
-new Site("Al-Borsa News", "https://www.alborsaanews.com", "abn.png");
-new Site("Youm7", "https://www.youm7.com", "y7.jpg");
-new Site("myEGY", "https://myegy.cc", "mey.jpg");
-new Site("ArabSeed", "https://arabseed.tv", "asd.png");
-new Site("Khamsat", "https://khamsat.com", "k5.jpg");
-new Site("Mostaql", "https://mostaql.com", "ml.png");
