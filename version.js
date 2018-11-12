@@ -1,1 +1,1 @@
-var versionName = 'Developer Personal Version (Primo)';
+var versionName = 'Web Version';
