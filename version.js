@@ -1,1 +1,1 @@
-var versionName = 'Web Version';
+var versionName = 'Demo Web Version';
