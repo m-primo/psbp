@@ -18,13 +18,17 @@
 You can add your sites from [userSites.js](userSites.js),
 like the syntax bellow:
 ```javascript
-new Site("Website Name", "full url with http or https", "imgname.ext");
+new Site("Website Name", "full url with http or https", "iconname.ext");
 ```
 Example
 ```javascript
 new Site("Blogger", "https://blogger.com", "b.png");
 ```
 **DO NOT FORGET TO ADD THE IMAGE IN THIS DIRECTORY: `img/site`**
+To add an external icon, just add `true` to the end, like the bellow:
+```javascript
+new Site("Website Name", "full url with http or https", "iconname.ext"**, true**);
+```
 
 # Tasks
 - [x] Update to V2.
