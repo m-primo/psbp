@@ -44,8 +44,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-**[Sponsor](.github/FUNDING.yml)**
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
