@@ -1,7 +1,8 @@
-# Primo Startup Browsing Page [Your Browsing Homepage]
-## Your gate to the internet.
+# Primo Startup Browsing Page
+# Your Browsing Homepage
+### Your gate to the internet.
 
-### Why Primo Startup Browsing Page Script?
+#### Why Primo Startup Browsing Page Script?
 - 100% Open-source and free.
 - Shortcut for your favorite websites.
 - Your favourite and most used websites in one page.
@@ -11,5 +12,5 @@
 - Easy to customize by yourself with no any programming knowledge.
 - No hidden scripts.
 
-Live Preview:
+## Live Preview:
 https://m-primo.github.io/psbp/
