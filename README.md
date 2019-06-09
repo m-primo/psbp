@@ -15,7 +15,7 @@
 ### https://m-primo.github.io/psbp/
 
 ## Usage:
-You can add your sites from `userSites.js`,
+You can add your sites from [userSites.js](userSites.js),
 like the syntax bellow:
 ```javascript
 new Site("Website Name", "full url with http or https", "imgname.imgext");
@@ -25,6 +25,13 @@ Example
 new Site("Blogger", "https://blogger.com", "b.png");
 ```
 **DO NOT FORGET TO ADD THE IMAGE IN THIS DIRECTORY `(img/site)`**
+
+# Tasks
+- [x] Update to V2.
+- [x] Change the name.
+- [x] Update README.
+- [ ] Update GIT files.
+- [ ] Announce.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
