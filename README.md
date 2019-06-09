@@ -24,7 +24,7 @@ Example
 ```javascript
 new Site("Blogger", "https://blogger.com", "b.png");
 ```
-**DO NOT FORGET TO ADD THE IMAGE IN THIS DIRECTORY `(img/site)`**
+**DO NOT FORGET TO ADD THE IMAGE IN THIS DIRECTORY: `img/site`**
 
 # Tasks
 - [x] Update to V2.
