@@ -43,7 +43,7 @@ Edit `Your version name` with any version name you want.
 - [x] Update to V2.
 - [x] Change the name.
 - [x] Update README.
-- [ ] Update GIT files.
+- [x] Update GIT files.
 - [ ] Announce.
 
 ## Contributing
