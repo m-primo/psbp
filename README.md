@@ -12,7 +12,7 @@
 - No hidden scripts.
 
 ## Live Preview:
-### https://m-primo.github.io/psbp/
+### https://m-primo.github.io/psbp/startup.html
 
 ## Usage:
 ### Add Sites:
