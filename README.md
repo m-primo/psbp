@@ -7,8 +7,8 @@
 - Your favourite and most used websites in one page.
 - Native/Pure JavaScript.
 - Files to edit/manage your favorite websites.
-- One file to add a new websites.
-- Easy to customize by yourself with no any programming knowledge.
+- One file to add a new website.
+- Easy to customize by yourself without any programming knowledge.
 - No hidden scripts.
 
 ## Live Preview:
