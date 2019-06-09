@@ -14,7 +14,7 @@
 ## Live Preview:
 ### https://m-primo.github.io/psbp/
 
-## How to:
+## Usage:
 You can add your sites from `userSites.js`,
 like the syntax bellow:
 ```javascript
