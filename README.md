@@ -18,7 +18,7 @@
 You can add your sites from [userSites.js](userSites.js),
 like the syntax bellow:
 ```javascript
-new Site("Website Name", "full url with http or https", "imgname.imgext");
+new Site("Website Name", "full url with http or https", "imgname.ext");
 ```
 Example
 ```javascript
