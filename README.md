@@ -44,7 +44,7 @@ Edit `Your version name` with any version name you want.
 - [x] Change the name.
 - [x] Update README.
 - [x] Update GIT files.
-- [ ] Announce.
+- [x] Announce.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
