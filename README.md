@@ -10,6 +10,7 @@
 - One file to add a new website.
 - Easy to customize by yourself without any programming knowledge.
 - No hidden scripts.
+- Dark & Light mode.
 
 ## Live Preview:
 ### https://m-primo.github.io/psbp
