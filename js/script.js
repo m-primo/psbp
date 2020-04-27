@@ -5,8 +5,9 @@ Developed by Primo
 https://mp-primo.blogspot.com/primo
 https://github.com/m-primo/psbp
 
-V1: Primo Startup Browsing Page
-V2: Your Browsing Homepage
+V1: init Primo Startup Browsing Page.
+V2: change the name to Your Browsing Homepage, major update.
+V2.1: Added dark & light mode, added auto-focus, added on escape pressed clear input, some update.
 
 MIT License
 ----------------------------------------------------------
@@ -16,7 +17,7 @@ MIT License
 // Initializations
 var scriptName = 'Your Browsing Homepage';
 var ns_scriptName = scriptName.replace(/ /g, "");
-var currentVersion = 'V2.0';
+var currentVersion = 'V2.1';
 // ----------------------------------------------------------
 
 // ----------------------------------------------------------
@@ -25,12 +26,65 @@ function getID(id) {
     return document.getElementById(id);
 }
 
-document.getElementsByName("q")[0].addEventListener("keyup", function(e) {
+function getTag(tag, i = 0) {
+    return document.getElementsByTagName(tag)[i];
+}
+
+function getName(name, i = 0) {
+    return document.getElementsByName(name)[i];
+}
+
+getName('q', 0).focus();
+
+getName('q', 0).addEventListener("keyup", function(e) {
     e.preventDefault();
-    if(e.keyCode === 13) {
-        getID("searchBtn").click();
-    }
+    if(e.keyCode === 13) doSearch();
+    if(e.keyCode === 27) clearSearch();
 });
+
+if(getLocStorage('style_mode') == null) setLocStorage('style_mode', 'light');
+var style_mode = getLocStorage('style_mode');
+switchMode(true, style_mode);
+
+function switchMode(strict = false, mode = 'dark') {
+    if(strict) styleMode(mode);
+    else {
+        if(getTag('body').getAttribute('id') == 'dark' || getTag('body').getAttribute('id') == null) switchMode(true, 'light');
+        else if(getTag('body').getAttribute('id') == 'light') switchMode(true, 'dark');
+    }
+}
+
+function styleMode(mode) {
+    getTag('body').setAttribute('id', mode);
+    setLocStorage('style_mode', mode);
+}
+
+function setLocStorage(iname, ivalue) {
+    localStorage.setItem(iname, ivalue);
+}
+
+function getLocStorage(iname) {
+    return localStorage.getItem(iname);
+}
+
+function setCookie(cname, cvalue, exdays = 90) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while(c.charAt(0) == ' ') c = c.substring(1);
+        if(c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
 
 function setFullDate() {
     var d = new Date();
@@ -39,24 +93,23 @@ function setFullDate() {
 } setFullDate(); setInterval(setFullDate, 1000);
 
 function doSearch() {
-    var qVal = document.getElementsByName("q")[0].value;
+    var qVal = getName('q', 0).value;
     var xVal;
     if(qVal != "") {
-        if(qVal.startsWith("http://") || qVal.startsWith("https://")) {
-            xVal = qVal;
-        } else {
-            xVal = "https://google.com/search?q=" + qVal + "&ie=UTF-8";
-        }
+        if(qVal.startsWith("http://") || qVal.startsWith("https://")) xVal = qVal;
+        else xVal = "https://google.com/search?q=" + qVal + "&ie=UTF-8";
         window.open("http://click-aduk.blogspot.com/click-ad?label=" + xVal + "&utm_source=" + ns_scriptName);
     }
+}
+
+function clearSearch() {
+    getName('q', 0).value = '';
 }
 
 boxID = 1;
 function Site(Title, URL, Icon, externalIcon = false) {
     URL = "http://click-aduk.blogspot.com/click-ad?label=" + URL + "?utm_source=" + ns_scriptName;
-    if(!externalIcon) {
-        Icon = "img/site/" + Icon;
-    }
+    if(!externalIcon) Icon = "img/site/" + Icon;
 
     this.Title = Title;
     this.URL = URL;
@@ -89,11 +142,8 @@ function Site(Title, URL, Icon, externalIcon = false) {
 adID = 1;
 function Ad(URL, Img, Place) {
     var adPlaceDiv;
-    if(Place == 1) {
-        adPlaceDiv = getID("adsTop");
-    } else if(Place == 2) {
-        adPlaceDiv = getID("adsBottom");
-    }
+    if(Place == 1) adPlaceDiv = getID("adsTop");
+    else if(Place == 2) adPlaceDiv = getID("adsBottom");
     adPlaceDiv.style.display = "block";
 
     URL = "http://click-aduk.blogspot.com/click-ad?label=" + URL + "?utm_source=" + ns_scriptName;
@@ -136,11 +186,14 @@ getID('devName').href = 'https://mp-primo.blogspot.com/primo';
 new Site("Google", "https://google.com", "g.jpg");
 new Site("Facebook", "https://facebook.com", "fb.png");
 new Site("Twitter", "https://twitter.com", "tw.png");
+new Site("LinkedIn", "https://www.linkedin.com", "li.webp");
+new Site("Reddit", "https://reddit.com", "rdi.png");
+new Site("Quora", "https://www.quora.com/", "qra.png");
 new Site("YouTube", "https://youtube.com", "yt.png");
 new Site("Instagram", "https://instagram.com", "ig.png");
 new Site("SoundCloud", "https://soundcloud.com", "sc.png");
-new Site("Google+", "https://plus.google.com", "gp.png");
-new Site("WhatsApp", "https://whatsapp.com", "wa.png");
+new Site("WhatsApp", "https://web.whatsapp.com", "wa.png");
+new Site("Telegram", "https://web.telegram.org", "teleg.jpg");
 new Site("Messenger", "https://www.messenger.com", "m.png");
 new Site("Skype", "https://skype.com", "sp.png");
 new Site("Gmail", "https://mail.google.com", "gm.png");
