@@ -189,6 +189,7 @@ new Site("Twitter", "https://twitter.com", "tw.png");
 new Site("LinkedIn", "https://www.linkedin.com", "li.webp");
 new Site("Reddit", "https://reddit.com", "rdi.png");
 new Site("Quora", "https://www.quora.com/", "qra.png");
+new Site("Pinterest", "https://www.pinterest.com/", "pt.png");
 new Site("YouTube", "https://youtube.com", "yt.png");
 new Site("Instagram", "https://instagram.com", "ig.png");
 new Site("SoundCloud", "https://soundcloud.com", "sc.png");
