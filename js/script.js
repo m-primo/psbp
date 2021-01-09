@@ -182,16 +182,21 @@ getID('devName').href = 'https://mp-primo.blogspot.com/primo';
 // ----------------------------------------------------------
 
 // ----------------------------------------------------------
-// Add Sites
+// Sites
 new Site("Google", "https://google.com", "g.jpg");
 new Site("Facebook", "https://facebook.com", "fb.png");
 new Site("Twitter", "https://twitter.com", "tw.png");
 new Site("LinkedIn", "https://www.linkedin.com", "li.webp");
 new Site("Reddit", "https://reddit.com", "rdi.png");
-new Site("Quora", "https://www.quora.com/", "qra.png");
-new Site("Pinterest", "https://www.pinterest.com/", "pt.png");
-new Site("YouTube", "https://youtube.com", "yt.png");
+new Site("MeWe", "https://mewe.com/", "mewe.png");
+new Site("Gab", "https://gab.com/", "gab.png");
+new Site("Parler", "https://parler.com/", "parler.png");
+new Site("Tumblr", "https://tumblr.com", "tumblr.png");
+new Site("Medium", "https://medium.com", "medium.png");
+new Site("Quora", "https://www.quora.com", "qra.png");
+new Site("Pinterest", "https://www.pinterest.com", "pt.png");
 new Site("Instagram", "https://instagram.com", "ig.png");
+new Site("YouTube", "https://youtube.com", "yt.png");
 new Site("SoundCloud", "https://soundcloud.com", "sc.png");
 new Site("WhatsApp", "https://web.whatsapp.com", "wa.png");
 new Site("Telegram", "https://web.telegram.org", "teleg.jpg");
@@ -202,14 +207,13 @@ new Site("Play Store", "https://play.google.com", "gps.png");
 new Site("G. Translate", "https://translate.google.com", "gt.png");
 new Site("G. Maps", "https://maps.google.com", "gms.png");
 new Site("Drive", "https://drive.google.com", "d.png");
-new Site("WikiPedia", "http://wikipedia.com", "wp.png");
+new Site("WikiPedia", "https://wikipedia.com", "wp.png");
 // ----------------------------------------------------------
 
 // ----------------------------------------------------------
-// Add Ads
-new Ad("https://primowarehouse.blogspot.com/2018/10/be-perfect-in-english.html", "beie.gif", 2);
-new Ad("https://mp-primo.blogspot.com/vc1.0", "vc.gif", 2);
-new Ad("https://adukmedia.blogspot.com/p/advertiser.html", "ad001.gif", 2);
-new Ad("http://power-cpu.blogspot.com/p/blog-page_15.html#EgyTweetForSale", "et.gif", 2);
-new Ad("https://primowarehouse.blogspot.com/2018/09/1-perfect-money-e-voucher.html", "ppcpm1.png", 2);
+// Ads
+new Ad("http://bit.ly/3i0CKiQ", "pb.png", 2);
+new Ad("http://bit.ly/3602QyO", "doo.png", 2);
+new Ad("http://bit.ly/38k7UgW", "vsv.png", 2);
+new Ad("http://bit.ly/3dyXcFC", "mpm.png", 2);
 // ----------------------------------------------------------
