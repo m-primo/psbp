@@ -18,6 +18,9 @@
 ## Google Chrome Extension
 ### https://chrome.google.com/webstore/detail/your-browsing-homepage/gankljibcichebamdgagnnncmnoacdmi
 
+## Mozilla Firefox Extension
+### https://addons.mozilla.org/en-US/firefox/addon/your-browsing-homepage/
+
 ## Usage:
 ### Add Sites:
 Open [userSites.js](userSites.js), then add a code like the syntax bellow:
