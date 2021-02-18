@@ -15,6 +15,9 @@
 ## Live Preview:
 ### https://m-primo.github.io/psbp
 
+## Google Chrome Extension
+### https://chrome.google.com/webstore/detail/your-browsing-homepage/gankljibcichebamdgagnnncmnoacdmi
+
 ## Usage:
 ### Add Sites:
 Open [userSites.js](userSites.js), then add a code like the syntax bellow:
