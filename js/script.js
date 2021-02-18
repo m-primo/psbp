@@ -42,6 +42,18 @@ getName('q', 0).addEventListener("keyup", function(e) {
     if(e.keyCode === 27) clearSearch();
 });
 
+getID('click-to-clear-search').onclick = function(){
+    clearSearch();
+};
+
+getID('click-to-do-search').onclick = function(){
+    doSearch();
+};
+
+getID('click-to-switch-mode').onclick = function(){
+    switchMode();
+};
+
 if(getLocStorage('style_mode') == null) setLocStorage('style_mode', 'light');
 var style_mode = getLocStorage('style_mode');
 switchMode(true, style_mode);
@@ -117,12 +129,17 @@ function Site(Title, URL, Icon, externalIcon = false) {
 
     var boxDiv = document.createElement("div");
     boxDiv.setAttribute("class", "box");
-    boxDiv.setAttribute("onclick", "window.open('" + this.URL + "')");
+    // boxDiv.setAttribute("id", "box-item-"+boxID);
+    // boxDiv.setAttribute("onclick", "window.open('" + this.URL + "')");
     boxDiv.setAttribute("title", this.Title);
     boxDiv.setAttribute("data-title", this.Title);
     boxDiv.setAttribute("data-url", this.URL);
     boxDiv.setAttribute("data-icon", this.Icon);
     boxDiv.setAttribute("data-id", boxID);
+
+    boxDiv.onclick = function() {
+        window.open(URL);
+    };
 
     var iconDiv = document.createElement("div");
     iconDiv.setAttribute("class", "icon");
@@ -157,8 +174,12 @@ function Ad(URL, Img, Place) {
     adDiv.setAttribute("data-url", this.URL);
     adDiv.setAttribute("data-img", this.Img);
     adDiv.setAttribute("data-id", adID);
-    adDiv.setAttribute("onclick", "window.open('" + this.URL + "')");
+    // adDiv.setAttribute("onclick", "window.open('" + this.URL + "')");
     adDiv.innerHTML = "<img src='" + this.Img + "' /></div>";
+
+    adDiv.onclick = function() {
+        window.open(URL);
+    };
 
     adPlaceDiv.appendChild(adDiv);
 
@@ -175,10 +196,7 @@ getID('scriptName').innerHTML = scriptName + ' Script';
 getID('scriptName').href = 'https://github.com/m-primo/psbp';
 getID('scriptVersion').innerHTML = currentVersion;
 getID('versionName').innerHTML = getID('descr').innerHTML = versionName;
-getID('createdYear').innerHTML = '2018';
 getID('currentYear').innerHTML = (new Date()).getFullYear();
-getID('devName').innerHTML = 'Primo';
-getID('devName').href = 'https://mp-primo.blogspot.com/primo';
 // ----------------------------------------------------------
 
 // ----------------------------------------------------------
