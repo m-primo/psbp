@@ -1,5 +1,5 @@
 # Primo Startup Browsing Page [Your Browsing Homepage]
-### Your gate to the internet
+Your gate to the internet
 
 ## Why Primo Startup Browsing Page Script?
 - 100% Open-source and free.
@@ -11,15 +11,16 @@
 - Easy to customize by yourself without any programming knowledge.
 - No hidden scripts.
 - Dark & Light mode.
+- Multiple search engines.
 
 ## Live Preview:
-### https://m-primo.github.io/psbp
+https://m-primo.github.io/psbp/startup.html
 
 ## Google Chrome Extension
-### https://chrome.google.com/webstore/detail/your-browsing-homepage/gankljibcichebamdgagnnncmnoacdmi
+https://chrome.google.com/webstore/detail/your-browsing-homepage/gankljibcichebamdgagnnncmnoacdmi
 
 ## Mozilla Firefox Extension
-### https://addons.mozilla.org/en-US/firefox/addon/your-browsing-homepage/
+https://addons.mozilla.org/en-US/firefox/addon/your-browsing-homepage/
 
 ## Usage:
 ### Add Sites:
@@ -45,13 +46,6 @@ Open [version.js](version.js), it will be like the code bellow:
 var versionName = 'Your version name';
 ```
 Edit `Your version name` with any version name you want.
-
-# Tasks
-- [x] Update to V2.
-- [x] Change the name.
-- [x] Update README.
-- [x] Update GIT files.
-- [x] Announce.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
