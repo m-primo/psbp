@@ -89,7 +89,7 @@ a:hover {
 }
 
 #dark #searchBox input,
-#searchBox select {
+#dark #searchBox select {
     border: 1px solid rgb(64, 64, 64);
     background-color: rgb(32, 32, 32);
     color: #999;
