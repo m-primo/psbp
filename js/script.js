@@ -7,7 +7,9 @@ https://github.com/m-primo/psbp
 
 V1: init Primo Startup Browsing Page.
 V2: change the name to Your Browsing Homepage, major update.
-V2.1: Added dark & light mode, added auto-focus, added on escape pressed clear input, some update.
+V2.1.0: Added dark & light mode, added auto-focus, added on escape pressed clear input, some update.
+V2.1.1: Uploaded to Google Chrome Store and Mozilla Firefox Store.
+V2.2.0: New websites, selectable search engine, some updates.
 
 MIT License
 ----------------------------------------------------------
@@ -17,7 +19,7 @@ MIT License
 // Initializations
 var scriptName = 'Your Browsing Homepage';
 var ns_scriptName = scriptName.replace(/ /g, "");
-var currentVersion = 'V2.1';
+var currentVersion = 'V2.2.0';
 // ----------------------------------------------------------
 
 // ----------------------------------------------------------
@@ -106,11 +108,12 @@ function setFullDate() {
 
 function doSearch() {
     var qVal = getName('q', 0).value;
+    var qEng = getID('searchengine').value;
     var xVal;
     if(qVal != "") {
         if(qVal.startsWith("http://") || qVal.startsWith("https://")) xVal = qVal;
-        else xVal = "https://google.com/search?q=" + qVal + "&ie=UTF-8";
-        window.open("http://click-aduk.blogspot.com/click-ad?label=" + xVal + "&utm_source=" + ns_scriptName);
+        else xVal = qEng + qVal;
+        window.open(xVal + "&utm_source=" + ns_scriptName);
     }
 }
 
@@ -120,7 +123,7 @@ function clearSearch() {
 
 boxID = 1;
 function Site(Title, URL, Icon, externalIcon = false) {
-    URL = "http://click-aduk.blogspot.com/click-ad?label=" + URL + "?utm_source=" + ns_scriptName;
+    URL = URL + "?utm_source=" + ns_scriptName;
     if(!externalIcon) Icon = "img/site/" + Icon;
 
     this.Title = Title;
@@ -129,8 +132,6 @@ function Site(Title, URL, Icon, externalIcon = false) {
 
     var boxDiv = document.createElement("div");
     boxDiv.setAttribute("class", "box");
-    // boxDiv.setAttribute("id", "box-item-"+boxID);
-    // boxDiv.setAttribute("onclick", "window.open('" + this.URL + "')");
     boxDiv.setAttribute("title", this.Title);
     boxDiv.setAttribute("data-title", this.Title);
     boxDiv.setAttribute("data-url", this.URL);
@@ -163,7 +164,7 @@ function Ad(URL, Img, Place) {
     else if(Place == 2) adPlaceDiv = getID("adsBottom");
     adPlaceDiv.style.display = "block";
 
-    URL = "http://click-aduk.blogspot.com/click-ad?label=" + URL + "?utm_source=" + ns_scriptName;
+    URL = URL + "?utm_source=" + ns_scriptName;
     Img = "img/ad/" + Img;
 
     this.URL = URL;
@@ -174,7 +175,6 @@ function Ad(URL, Img, Place) {
     adDiv.setAttribute("data-url", this.URL);
     adDiv.setAttribute("data-img", this.Img);
     adDiv.setAttribute("data-id", adID);
-    // adDiv.setAttribute("onclick", "window.open('" + this.URL + "')");
     adDiv.innerHTML = "<img src='" + this.Img + "' /></div>";
 
     adDiv.onclick = function() {
@@ -197,41 +197,4 @@ getID('scriptName').href = 'https://github.com/m-primo/psbp';
 getID('scriptVersion').innerHTML = currentVersion;
 getID('versionName').innerHTML = getID('descr').innerHTML = versionName;
 getID('currentYear').innerHTML = (new Date()).getFullYear();
-// ----------------------------------------------------------
-
-// ----------------------------------------------------------
-// Sites
-new Site("Google", "https://google.com", "g.jpg");
-new Site("Facebook", "https://facebook.com", "fb.png");
-new Site("Twitter", "https://twitter.com", "tw.png");
-new Site("LinkedIn", "https://www.linkedin.com", "li.webp");
-new Site("Reddit", "https://reddit.com", "rdi.png");
-new Site("MeWe", "https://mewe.com/", "mewe.png");
-new Site("Gab", "https://gab.com/", "gab.png");
-new Site("Parler", "https://parler.com/", "parler.png");
-new Site("Tumblr", "https://tumblr.com", "tumblr.png");
-new Site("Medium", "https://medium.com", "medium.png");
-new Site("Quora", "https://www.quora.com", "qra.png");
-new Site("Pinterest", "https://www.pinterest.com", "pt.png");
-new Site("Instagram", "https://instagram.com", "ig.png");
-new Site("YouTube", "https://youtube.com", "yt.png");
-new Site("SoundCloud", "https://soundcloud.com", "sc.png");
-new Site("WhatsApp", "https://web.whatsapp.com", "wa.png");
-new Site("Telegram", "https://web.telegram.org", "teleg.jpg");
-new Site("Messenger", "https://www.messenger.com", "m.png");
-new Site("Skype", "https://skype.com", "sp.png");
-new Site("Gmail", "https://mail.google.com", "gm.png");
-new Site("Play Store", "https://play.google.com", "gps.png");
-new Site("G. Translate", "https://translate.google.com", "gt.png");
-new Site("G. Maps", "https://maps.google.com", "gms.png");
-new Site("Drive", "https://drive.google.com", "d.png");
-new Site("WikiPedia", "https://wikipedia.com", "wp.png");
-// ----------------------------------------------------------
-
-// ----------------------------------------------------------
-// Ads
-new Ad("http://bit.ly/3i0CKiQ", "pb.png", 2);
-new Ad("http://bit.ly/3602QyO", "doo.png", 2);
-new Ad("http://bit.ly/38k7UgW", "vsv.png", 2);
-new Ad("http://bit.ly/3dyXcFC", "mpm.png", 2);
 // ----------------------------------------------------------

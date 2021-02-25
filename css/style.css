@@ -10,6 +10,7 @@ body {
     text-align: center;
     background-color: #eee;
     color: rgb(23, 23, 26);
+    min-width: 750px;
 }
 
 body#dark {
@@ -76,7 +77,8 @@ a:hover {
     overflow: hidden;
 }
 
-#searchBox input {
+#searchBox input,
+#searchBox select {
     padding: 10px 25px;
     vertical-align: middle;
     outline: 0;
@@ -86,17 +88,20 @@ a:hover {
     color: #222;
 }
 
-#dark #searchBox input {
+#dark #searchBox input,
+#searchBox select {
     border: 1px solid rgb(64, 64, 64);
     background-color: rgb(32, 32, 32);
     color: #999;
 }
 
-#searchBox input[type="text"]:focus {
+#searchBox input[type="text"]:focus,
+#searchBox select:focus {
     outline: 2px solid #ccc;
 }
 
-#dark #searchBox input[type="text"]:focus {
+#dark #searchBox input[type="text"]:focus,
+#dark #searchBox select:focus {
     outline: 2px solid rgb(128, 128, 128);
 }
 
