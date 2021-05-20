@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Your Browsing Homepage",
     "description": "Your gate to the internet.",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "browser_action": {
         "default_icon": "img/icon.png",
         "default_popup": "startup.html",

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
     <title id="Head_title"></title>
     <meta charset="utf-8" />
@@ -19,15 +19,15 @@
 
 <div id="searchBox">
     <input type="text" name="q" placeholder="Enter text or URL..." size="70" />
-    <select id="searchengine">
+    <select id="searchengine" title="Select Search Engine">
         <option value="https://www.google.com/search?q=">Google</option>
         <option value="https://duckduckgo.com/?q=" selected="selected">DuckDuckGo</option>
         <option value="https://www.startpage.com/sp/search?query=">Startpage</option>
         <option value="https://www.bing.com/search?q=">Bing</option>
         <option value="https://search.yahoo.com/search?q=">Yahoo</option>
     </select>
-    <input type="image" id="click-to-clear-search" src="img/x.png" />
-    <input type="image" id="click-to-do-search" src="img/forward.png" />
+    <input type="image" id="click-to-clear-search" src="img/x.png" title="Clear" />
+    <input type="image" id="click-to-do-search" src="img/forward.png" title="Search" />
 </div>
 
 <div id="datetime"></div>
@@ -39,10 +39,12 @@
 <div class="ads" id="adsBottom" style="display: none;"></div>
 
 <div id="foot">
-    <p><img id="click-to-switch-mode" src="img/mode.png" width="32" style="cursor: pointer;" title="Switch Mode (Light/Dark)" /></p>
+    <p>
+        <img id="click-to-switch-mode" src="img/mode.png" width="32" style="cursor: pointer;" title="Switch Mode (Light/Dark)" />
+    </p>
     <p>
         <span>© <span id="createdYear">2018</span>-<span id="currentYear"></span></span>
-        <span><a id="scriptName" href="#" target="_blank"></a></span>
+        <span><a id="scriptName" href="" target="_blank"></a></span>
         <span id="scriptVersion"></span> -
         <span>[<span id="versionName"></span>] -</span>
         <span>Developed by <a id="devName" href="https://primo-businesses.blogspot.com/" target="_blank">Primo</a></span>

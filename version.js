@@ -1,1 +1,1 @@
-var versionName = 'Web Version';
+const versionName = 'Web Version';
