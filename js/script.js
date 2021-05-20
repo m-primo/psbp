@@ -10,7 +10,7 @@ V2: change the name to Your Browsing Homepage, major update.
 V2.1.0: Added dark & light mode, added auto-focus, added on escape pressed clear input, some update.
 V2.1.1: Uploaded to Google Chrome Store and Mozilla Firefox Store.
 V2.2.0: New websites, selectable search engine, some updates.
-V2.3.0: Style edited, tooltip added.
+V2.3.0: Style edited, tooltip added, multiple custom versions, structure updated.
 
 MIT License
 ----------------------------------------------------------
@@ -19,7 +19,7 @@ MIT License
 // ----------------------------------------------------------
 // Initializations
 const scriptName = 'Your Browsing Homepage';
-const ns_scriptName = scriptName.replace(/ /g, "");
+const ns_scriptName = scriptName.replace(/ /g, '');
 const currentVersion = 'v2.3.0';
 const slogan = 'Your gate to the internet';
 // ----------------------------------------------------------
@@ -40,7 +40,7 @@ function getName(name, i = 0) {
 
 getName('q', 0).focus();
 
-getName('q', 0).addEventListener("keyup", function(e) {
+getName('q', 0).addEventListener('keyup', function(e) {
     e.preventDefault();
     if(e.keyCode === 13) doSearch();
     if(e.keyCode === 27) clearSearch();
@@ -86,12 +86,12 @@ function getLocStorage(iname) {
 function setCookie(cname, cvalue, exdays = 90) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    const expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    const expires = 'expires='+ d.toUTCString();
+    document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 }
 
 function getCookie(cname) {
-    const name = cname + "=";
+    const name = cname + '=';
     const decodedCookie = decodeURIComponent(document.cookie);
     const ca = decodedCookie.split(';');
     for(var i = 0; i < ca.length; i++) {
@@ -99,23 +99,23 @@ function getCookie(cname) {
         while(c.charAt(0) == ' ') c = c.substring(1);
         if(c.indexOf(name) == 0) return c.substring(name.length, c.length);
     }
-    return "";
+    return '';
 }
 
 function setFullDate() {
     const d = new Date();
     const n = d.toUTCString();
-    getID("datetime").innerHTML = n;
+    getID('datetime').innerHTML = n;
 } setFullDate(); setInterval(setFullDate, 1000);
 
 function doSearch() {
     const qVal = getName('q', 0).value;
     const qEng = getID('searchengine').value;
     let xVal;
-    if(qVal != "") {
-        if(qVal.startsWith("http://") || qVal.startsWith("https://")) xVal = qVal;
+    if(qVal != '') {
+        if(qVal.startsWith('http://') || qVal.startsWith('https://')) xVal = qVal;
         else xVal = qEng + qVal;
-        window.open(xVal + "&utm_source=" + ns_scriptName);
+        window.open(xVal + '&utm_source=' + ns_scriptName);
     }
 }
 
@@ -123,10 +123,20 @@ function clearSearch() {
     getName('q', 0).value = '';
 }
 
+function loadJsScript(src, id) {
+    getID(id).remove();
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = src;
+    s.innerHTML = null;
+    s.id = id;
+    document.getElementsByTagName('body')[0].appendChild(s);
+}
+
 let boxID = 1;
 function Site(Title, URL, Icon, Description = null, externalIcon = false) {
-    URL = URL + "?utm_source=" + ns_scriptName;
-    if(!externalIcon) Icon = "img/site/" + Icon;
+    URL = URL + '?utm_source=' + ns_scriptName;
+    if(!externalIcon) Icon = 'img/site/' + Icon;
     if(!Description) Description = Title;
 
     this.Title = Title;
@@ -134,28 +144,28 @@ function Site(Title, URL, Icon, Description = null, externalIcon = false) {
     this.Icon = Icon;
     this.Description = Description;
 
-    const boxDiv = document.createElement("div");
-    boxDiv.setAttribute("class", "box");
-    boxDiv.setAttribute("data-tooltip", this.Description);
-    boxDiv.setAttribute("data-title", this.Title);
-    boxDiv.setAttribute("data-description", this.Description);
-    boxDiv.setAttribute("data-url", this.URL);
-    boxDiv.setAttribute("data-icon", this.Icon);
-    boxDiv.setAttribute("data-id", boxID);
+    const boxDiv = document.createElement('div');
+    boxDiv.setAttribute('class', 'box');
+    boxDiv.setAttribute('data-tooltip', this.Description);
+    boxDiv.setAttribute('data-title', this.Title);
+    boxDiv.setAttribute('data-description', this.Description);
+    boxDiv.setAttribute('data-url', this.URL);
+    boxDiv.setAttribute('data-icon', this.Icon);
+    boxDiv.setAttribute('data-id', boxID);
 
     boxDiv.onclick = function() {
         window.open(URL);
     };
 
-    const iconDiv = document.createElement("div");
-    iconDiv.setAttribute("class", "icon");
-    iconDiv.innerHTML = "<img src='" + this.Icon + "'/>";
+    const iconDiv = document.createElement('div');
+    iconDiv.setAttribute('class', 'icon');
+    iconDiv.innerHTML = '<img src="' + this.Icon + '"/>';
 
-    const titleDiv = document.createElement("div");
-    titleDiv.setAttribute("class", "title");
+    const titleDiv = document.createElement('div');
+    titleDiv.setAttribute('class', 'title');
     titleDiv.innerHTML = this.Title;
 
-    getID("boxies").appendChild(boxDiv);
+    getID('boxies').appendChild(boxDiv);
     boxDiv.appendChild(iconDiv);
     boxDiv.appendChild(titleDiv);
 
@@ -165,22 +175,22 @@ function Site(Title, URL, Icon, Description = null, externalIcon = false) {
 let adID = 1;
 function Ad(URL, Img, Place) {
     let adPlaceDiv;
-    if(Place == 1) adPlaceDiv = getID("adsTop");
-    else if(Place == 2) adPlaceDiv = getID("adsBottom");
-    adPlaceDiv.style.display = "block";
+    if(Place == 1) adPlaceDiv = getID('adsTop');
+    else if(Place == 2) adPlaceDiv = getID('adsBottom');
+    adPlaceDiv.style.display = 'block';
 
-    URL = URL + "?utm_source=" + ns_scriptName;
-    Img = "img/ad/" + Img;
+    URL = URL + '?utm_source=' + ns_scriptName;
+    Img = 'img/ad/' + Img;
 
     this.URL = URL;
     this.Img = Img;
 
-    const adDiv = document.createElement("div");
-    adDiv.setAttribute("class", "ad a125");
-    adDiv.setAttribute("data-url", this.URL);
-    adDiv.setAttribute("data-img", this.Img);
-    adDiv.setAttribute("data-id", adID);
-    adDiv.innerHTML = "<img src='" + this.Img + "' /></div>";
+    const adDiv = document.createElement('div');
+    adDiv.setAttribute('class', 'ad a125');
+    adDiv.setAttribute('data-url', this.URL);
+    adDiv.setAttribute('data-img', this.Img);
+    adDiv.setAttribute('data-id', adID);
+    adDiv.innerHTML = '<img src="' + this.Img + '" /></div>';
 
     adDiv.onclick = function() {
         window.open(URL);
@@ -196,11 +206,10 @@ function Ad(URL, Img, Place) {
 // Set Data [DOM]
 getID('title').innerHTML = scriptName;
 getID('Head_title').innerHTML = scriptName+' - '+slogan;
-getID('Head_meta_desc').setAttribute("content", 'Primo Startup Browsing Page | Your Browsing Homepage - '+slogan+'.');
-getID('Head_meta_key').setAttribute("content", getID('Head_meta_desc').getAttribute("content").replace(/-/g, "").replace(/\|/g, "").replace(/,/g, "").replace(/ /g, ", "));
+getID('Head_meta_desc').setAttribute('content', 'Primo Startup Browsing Page | Your Browsing Homepage - '+slogan+'.');
+getID('Head_meta_key').setAttribute('content', getID('Head_meta_desc').getAttribute('content').replace(/-/g, '').replace(/\|/g, '').replace(/,/g, '').replace(/ /g, ', '));
 getID('scriptName').innerHTML = scriptName;
 getID('scriptName').href = 'https://github.com/m-primo/psbp';
 getID('scriptVersion').innerHTML = currentVersion;
-getID('versionName').innerHTML = getID('descr').innerHTML = versionName;
 getID('currentYear').innerHTML = (new Date()).getFullYear();
 // ----------------------------------------------------------

@@ -1,1 +1,0 @@
-const versionName = 'Web Version';

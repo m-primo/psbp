@@ -50,26 +50,6 @@ a:hover {
     text-transform: uppercase;
 }
 
-#head #descr {
-    margin-top: 25px;
-    font-size: 16px;
-    color: #555;
-}
-
-#head #descr:before, #head #descr:after {
-    font-size: 14px;
-    margin: 0 5px;
-    color: #666;
-}
-
-#head #descr:before {
-    content: '->';
-}
-
-#head #descr:after {
-    content: '<-';
-}
-
 #searchBox {
     margin: 25px auto;
     text-align: center;
@@ -277,63 +257,3 @@ a:hover {
     margin: 20px auto;
     font-size: 14px;
 }
-
-/* @media screen and (max-width: 339px) and (min-width: 180px){
-    #boxies {
-        grid-template-columns: 127px;
-    }
-}
-
-@media screen and (max-width: 514px) and (min-width: 340px){
-    #boxies {
-        grid-template-columns: 127px 127px;
-    }
-}
-
-@media screen and (max-width: 680px) and (min-width: 515px){
-    #boxies {
-        grid-template-columns: 127px 127px 127px;
-    }
-}
-
-@media screen and (max-width: 849px) and (min-width: 681px){
-    #boxies {
-        grid-template-columns: 127px 127px 127px 127px;
-    }
-}
-
-@media screen and (max-width: 1023px) and (min-width: 850px){
-    #boxies {
-        grid-template-columns: 127px 127px 127px 127px 127px;
-    }
-}
-
-@media screen and (max-width: 1189px) and (min-width: 1024px){
-    #boxies {
-        grid-template-columns: 127px 127px 127px 127px 127px 127px;
-    }
-}
-
-@media screen and (max-width: 1350px) and (min-width: 1190px){
-    #boxies {
-        grid-template-columns: 127px 127px 127px 127px 127px 127px 127px;
-    }
-}
-
-@media screen and (max-width: 1599px) and (min-width: 1351px){
-    #boxies {
-        grid-template-columns: 127px 127px 127px 127px 127px 127px 127px 127px;
-    }
-}
-
-@media screen and (max-width: 1799px) and (min-width: 1600px){
-    #boxies {
-        grid-template-columns: 127px 127px 127px 127px 127px 127px 127px 127px 127px;
-    }
-}
-
-@media screen and (min-width: 1800px){
-    #boxies {
-        grid-template-columns: 127px 127px 127px 127px 127px 127px 127px 127px 127px 127px;
-    }
-} */

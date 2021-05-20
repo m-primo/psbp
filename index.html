@@ -14,7 +14,6 @@
 
 <div id="head">
     <div id="title"></div>
-    <div id="descr"></div>
 </div>
 
 <div id="searchBox">
@@ -42,20 +41,22 @@
     <p>
         <img id="click-to-switch-mode" src="img/mode.png" width="32" style="cursor: pointer;" title="Switch Mode (Light/Dark)" />
     </p>
+    <p id="version-wrapper">
+        <small>Version: <span id="version"></span></small>
+    </p>
     <p>
         <span>© <span id="createdYear">2018</span>-<span id="currentYear"></span></span>
         <span><a id="scriptName" href="" target="_blank"></a></span>
         <span id="scriptVersion"></span> -
-        <span>[<span id="versionName"></span>] -</span>
-        <span>Developed by <a id="devName" href="https://primo-businesses.blogspot.com/" target="_blank">Primo</a></span>
+        <span>Developed by <a id="devName" href="https://primo-businesses.blogspot.com/" target="_blank">Primo</a></span>.
     </p>
 </div>
 
-<script src="version.js"></script>
 <script src="js/script.js"></script>
 <script src="js/sites.js"></script>
 <script src="js/ads.js"></script>
-<script src="userSites.js"></script>
+<script id="script-src--userSites" src="userSites.js"></script>
+<script src="js/version.js"></script>
 
 </body>
 </html>
