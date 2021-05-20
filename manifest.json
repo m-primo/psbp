@@ -5,7 +5,7 @@
     "version": "2.3.0",
     "browser_action": {
         "default_icon": "img/icon.png",
-        "default_popup": "startup.html",
+        "default_popup": "index.html",
         "icons": "img/icon.png"
     },
     "icons": {
