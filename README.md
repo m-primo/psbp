@@ -26,7 +26,7 @@ https://addons.mozilla.org/en-US/firefox/addon/your-browsing-homepage/
 ### Add Sites:
 Open [userSites.js](userSites.js), then add a code like the syntax bellow:
 ```javascript
-new Site("Website Name", "full url with http or https", "iconname.ext");
+new Site("Website Name", "full url with http or https", "iconname.ext", "Description (you can leave it empty)");
 ```
 Example
 ```javascript
@@ -34,18 +34,18 @@ new Site("Blogger", "https://blogger.com", "b.png");
 ```
 **DO NOT FORGET TO ADD THE IMAGE IN THIS DIRECTORY: `img/site`.**
 
-To add an external icon, just add `true` to the end, like the bellow:
+To add an external icon, just add `true` at the end, like the bellow:
 ```javascript
-new Site("Website Name", "full url with http or https", "http://www.example.com/iconname.ext", true);
+new Site("Website Name", "full url with http or https", "http://www.example.com/iconname.ext", "Description (you can leave it empty)", true);
 ```
-Just replace `http://www.example.com/iconname.ext` with the url.
+Just replace `http://www.example.com/iconname.ext` with the image url.
 
 ### Edit Version Name:
 Open [version.js](version.js), it will be like the code bellow:
 ```javascript
-var versionName = 'Your version name';
+const versionName = 'Your version name';
 ```
-Edit `Your version name` with any version name you want.
+Change `Your version name` with any version name you want.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
