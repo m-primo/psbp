@@ -11,6 +11,7 @@ V2.1.0: Added dark & light mode, added auto-focus, added on escape pressed clear
 V2.1.1: Uploaded to Google Chrome Store and Mozilla Firefox Store.
 V2.2.0: New websites, selectable search engine, some updates.
 V2.3.0: Style edited, tooltip added, multiple custom versions, structure updated.
+V2.3.1: little bug fixed in version.
 
 MIT License
 ----------------------------------------------------------
@@ -20,7 +21,7 @@ MIT License
 // Initializations
 const scriptName = 'Your Browsing Homepage';
 const ns_scriptName = scriptName.replace(/ /g, '');
-const currentVersion = 'v2.3.0';
+const currentVersion = 'v2.3.1';
 const slogan = 'Your gate to the internet';
 // ----------------------------------------------------------
 

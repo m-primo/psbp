@@ -5,5 +5,6 @@ if(version) {
     getID('version').innerHTML = version;
     loadJsScript(version+'_userSites.js', 'script-src--userSites');
 } else {
-    getID('version-wrapper').remove();
+    getID('version').innerHTML = 'default';
+    loadJsScript('userSites.js', 'script-src--userSites');
 }
