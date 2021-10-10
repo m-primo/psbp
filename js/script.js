@@ -12,6 +12,7 @@ V2.1.1: Uploaded to Google Chrome Store and Mozilla Firefox Store.
 V2.2.0: New websites, selectable search engine, some updates.
 V2.3.0: Style edited, tooltip added, multiple custom versions, structure updated.
 V2.3.1: little bug fixed in version.
+V2.3.2: auto-detect mode added, added some websites, new search engines added, ads removed, fix keycode deprecated, changed the file structure.
 
 MIT License
 ----------------------------------------------------------
@@ -21,8 +22,14 @@ MIT License
 // Initializations
 const scriptName = 'Your Browsing Homepage';
 const ns_scriptName = scriptName.replace(/ /g, '');
-const currentVersion = 'v2.3.1';
+const currentVersion = 'v2.3.2';
 const slogan = 'Your gate to the internet';
+// ----------------------------------------------------------
+
+// ----------------------------------------------------------
+// Temp
+let boxID = 1;
+let adID = 1;
 // ----------------------------------------------------------
 
 // ----------------------------------------------------------
@@ -39,29 +46,32 @@ function getName(name, i = 0) {
     return document.getElementsByName(name)[i];
 }
 
-getName('q', 0).focus();
+function KeyCode(event) {
+    let code;
+    if(event.key !== undefined) {
+        code = event.key;
+    } else if(event.keyIdentifier !== undefined) {
+        code = event.keyIdentifier;
+    } else if(event.keyCode !== undefined) {
+        code = event.keyCode;
+    }
+    return code;
+}
 
-getName('q', 0).addEventListener('keyup', function(e) {
-    e.preventDefault();
-    if(e.keyCode === 13) doSearch();
-    if(e.keyCode === 27) clearSearch();
-});
-
-getID('click-to-clear-search').onclick = function(){
-    clearSearch();
-};
-
-getID('click-to-do-search').onclick = function(){
-    doSearch();
-};
-
-getID('click-to-switch-mode').onclick = function(){
-    switchMode();
-};
-
-if(getLocStorage('style_mode') == null) setLocStorage('style_mode', 'light');
-const style_mode = getLocStorage('style_mode');
-switchMode(true, style_mode);
+function AutoDetectStyleModeDriver() {
+    if(getLocStorage('auto_detect_style_mode') == 'true') {
+        if(window.matchMedia) {
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+            if(prefersDark.matches) {
+                switchMode(true, 'dark');
+            } else {
+                switchMode(true, 'light');
+            }
+        } else {
+            alert('System Theme Auto Detect Mode is not supported.');
+        }
+    }
+}
 
 function switchMode(strict = false, mode = 'dark') {
     if(strict) styleMode(mode);
@@ -107,7 +117,7 @@ function setFullDate() {
     const d = new Date();
     const n = d.toUTCString();
     getID('datetime').innerHTML = n;
-} setFullDate(); setInterval(setFullDate, 1000);
+}
 
 function doSearch() {
     const qVal = getName('q', 0).value;
@@ -134,7 +144,6 @@ function loadJsScript(src, id) {
     document.getElementsByTagName('body')[0].appendChild(s);
 }
 
-let boxID = 1;
 function Site(Title, URL, Icon, Description = null, externalIcon = false) {
     URL = URL + '?utm_source=' + ns_scriptName;
     if(!externalIcon) Icon = 'img/site/' + Icon;
@@ -173,7 +182,6 @@ function Site(Title, URL, Icon, Description = null, externalIcon = false) {
     boxID++;
 }
 
-let adID = 1;
 function Ad(URL, Img, Place) {
     let adPlaceDiv;
     if(Place == 1) adPlaceDiv = getID('adsTop');
@@ -204,6 +212,36 @@ function Ad(URL, Img, Place) {
 // ----------------------------------------------------------
 
 // ----------------------------------------------------------
+// Dom Functions
+getName('q', 0).focus();
+
+getName('q', 0).addEventListener('keyup', function(e){
+    e.preventDefault();
+    const key_code = KeyCode(e);
+    if(key_code === 13) doSearch();
+    if(key_code === 27) clearSearch();
+});
+
+getID('click-to-clear-search').onclick = function(){
+    clearSearch();
+};
+
+getID('click-to-do-search').onclick = function(){
+    doSearch();
+};
+
+getID('click-to-switch-mode').onclick = function(){
+    switchMode();
+    setLocStorage('auto_detect_style_mode', 'false');
+};
+
+getID('click-to-auto-detect-mode').onclick = function(){
+    setLocStorage('auto_detect_style_mode', 'true');
+    AutoDetectStyleModeDriver();
+};
+// ----------------------------------------------------------
+
+// ----------------------------------------------------------
 // Set Data [DOM]
 getID('title').innerHTML = scriptName;
 getID('Head_title').innerHTML = scriptName+' - '+slogan;
@@ -213,4 +251,18 @@ getID('scriptName').innerHTML = scriptName;
 getID('scriptName').href = 'https://github.com/m-primo/psbp';
 getID('scriptVersion').innerHTML = currentVersion;
 getID('currentYear').innerHTML = (new Date()).getFullYear();
+setFullDate();
+setInterval(setFullDate, 1000);
+// ----------------------------------------------------------
+
+// ----------------------------------------------------------
+// Style/Theme Mode
+if(getLocStorage('style_mode') == null) setLocStorage('style_mode', 'light');
+const style_mode = getLocStorage('style_mode');
+switchMode(true, style_mode);
+if(getLocStorage('auto_detect_style_mode') == null) setLocStorage('auto_detect_style_mode', 'true');
+AutoDetectStyleModeDriver();
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    AutoDetectStyleModeDriver();
+});
 // ----------------------------------------------------------
