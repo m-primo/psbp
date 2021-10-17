@@ -48,9 +48,7 @@ function getName(name, i = 0) {
 
 function KeyCode(event) {
     let code;
-    if(event.key !== undefined) {
-        code = event.key;
-    } else if(event.keyIdentifier !== undefined) {
+    if(event.keyIdentifier !== undefined) {
         code = event.keyIdentifier;
     } else if(event.keyCode !== undefined) {
         code = event.keyCode;
@@ -218,8 +216,8 @@ getName('q', 0).focus();
 getName('q', 0).addEventListener('keyup', function(e){
     e.preventDefault();
     const key_code = KeyCode(e);
-    if(key_code === 13) doSearch();
-    if(key_code === 27) clearSearch();
+    if(key_code == 13) doSearch();
+    if(key_code == 27) clearSearch();
 });
 
 getID('click-to-clear-search').onclick = function(){
